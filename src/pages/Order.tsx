@@ -31,7 +31,7 @@ export default function Order() {
                 ))}
             </ul>
             <div className="action-container">
-                <button type="button" onClick={startAgain}>Create Your Pizza</button>
+                <button type="button" onClick={startAgain}>Back to Create Your Pizza</button>
             </div>
         </div>
     );

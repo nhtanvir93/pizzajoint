@@ -13,7 +13,7 @@ export default function NotFound() {
         <div>
             <h2 className="centered-text">Not Found</h2>
             <div className="action-container">
-                <button type="button" onClick={startAgain}>Create Your Pizza</button>
+                <button type="button" onClick={startAgain}>Back to Create Your Pizza</button>
             </div>
         </div>
     )
