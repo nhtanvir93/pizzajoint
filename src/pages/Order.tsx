@@ -14,6 +14,11 @@ export default function Order() {
 
     if (!base || !toppings || toppings.length === 0) return null;
 
+    const startAgain = () => {
+        session.clear();
+        navigate("/");
+    };
+
     return (
         <div>
             <h2>Thank you for your order :)</h2>
@@ -25,6 +30,9 @@ export default function Order() {
                     <li key={topping} className="highlight centered-text">{topping}</li>
                 ))}
             </ul>
+            <div className="action-container">
+                <button type="button" onClick={startAgain}>Create Your Pizza</button>
+            </div>
         </div>
     );
 }
