@@ -58,7 +58,7 @@ button {
 
 button:hover {
   background-color: #000;
-  color: #fff;
+  color: #fff8dc;
 }
 
 .action-title {
@@ -82,7 +82,7 @@ li {
 
 li.selected-item {
   background-color: #000;
-  color: #fff;
+  color: #fff8dc;
 }
 
 button:disabled {
