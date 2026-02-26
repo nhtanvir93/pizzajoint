@@ -27,7 +27,7 @@ body {
 }
 
 .brand-title {
-  border-bottom: 1px solid #000;
+  border-bottom: 3px solid #000;
   flex: 1;
 }
 
@@ -49,9 +49,9 @@ button {
   padding: 10px 30px;
   border-radius: 20px;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 1.6rem;
   outline: 0;
-  border: 2px solid #000;
+  border: 3px solid #000;
   cursor: pointer;
   transition: all .2s linear;
 }

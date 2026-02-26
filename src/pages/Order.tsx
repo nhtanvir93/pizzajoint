@@ -21,7 +21,7 @@ export default function Order() {
 
     return (
         <div>
-            <h2>Thank you for your order :)</h2>
+            <h2 className="centered-text">Thank you for your order :)</h2>
             <p className="centered-text">
                 You ordered a <span className="highlight">{base}</span> with:
             </p>
