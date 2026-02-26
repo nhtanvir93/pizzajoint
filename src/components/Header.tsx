@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export default function Header() {
   return (
     <div className="header">
@@ -27,9 +29,13 @@ export default function Header() {
           />
         </svg>
       </div>
-      <div className="brand-title">
+      <motion.div
+        className="brand-title"
+        initial={{y: -250}}
+        animate={{y: -10}}
+      >
         <h1>Pizza Joint</h1>
-      </div>
+      </motion.div>
     </div>
   );
 }

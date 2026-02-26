@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import session from "../utilities/session";
+import { motion } from 'framer-motion';
 
 const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'] as const;
 
@@ -30,9 +31,18 @@ export default function Base() {
                     </li>
                 ))}
             </ul>
-            <button type="button" onClick={next} disabled={!selected}>
-                Next
-            </button>
+            {
+                selected && 
+                <motion.button 
+                    type="button" 
+                    onClick={next} disabled={!selected}
+                    initial={{x: '-100vw'}}
+                    animate={{x: 0}}
+                    transition={{ duration: 0.05 }}
+                >
+                    Next
+                </motion.button>
+            }
         </div>
     );
 }
