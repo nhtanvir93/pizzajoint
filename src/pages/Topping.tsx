@@ -5,6 +5,19 @@ import { motion } from 'framer-motion';
 
 const toppings = ['Mushrooms', 'Peppers', 'Onion', 'Olives', 'Extra Cheese', 'Tomatoes'] as const;
 
+const containerVariants = {
+    hidden: {
+        x: '100vw'
+    },
+    visible: {
+        x: 0,
+        transition: {
+            type: 'spring', 
+            delay: 0.5
+        }
+    }
+} as const;
+
 const listItemVariants = {
     hover: {
         originX: 0,
@@ -53,7 +66,11 @@ export default function Topping() {
     };
 
     return (
-        <div>
+        <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+        >
             <h2 className="action-title">Step 2 : Choose Toppings</h2>
             <ul role="listbox">
                 {toppings.map(topping => (
@@ -88,6 +105,6 @@ export default function Topping() {
                     </motion.button>
                 </motion.div>
             }
-        </div>
+        </motion.div>
     );
 }
