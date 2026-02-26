@@ -19,10 +19,22 @@ const containerVariants = {
     visible: {
         x: 0,
         transition: {
-            type: 'spring', 
-            delay: 0.5
+            type: 'spring',
+            mass: 0.4,
+            damping: 8,
+            when: 'beforeChildren',
+            staggerChildren: 0.3
         }
     }
+} as const;
+
+const childVariants = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1
+    },
 } as const;
 
 export default function Order() {
@@ -49,14 +61,19 @@ export default function Order() {
             animate="visible"
         >
             <h2 className="centered-text">Thank you for your order :)</h2>
-            <p className="centered-text">
+            <motion.p 
+                className="centered-text"
+                variants={childVariants}
+            >
                 You ordered a <span className="highlight">{base}</span> with:
-            </p>
-            <ul>
+            </motion.p>
+            <motion.ul
+                variants={childVariants}
+            >
                 {toppings.map(topping => (
                     <li key={topping} className="highlight centered-text">{topping}</li>
                 ))}
-            </ul>
+            </motion.ul>
             <div className="action-container">
                 <motion.button 
                     type="button" 
