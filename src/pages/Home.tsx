@@ -17,9 +17,13 @@ const containerVariants = {
 
 const createButtonVariants = {
     hover: {
-        scale: [1, 1.1, 1, 1.1, 1, 1.1, 1],
+        scale: 1.1,
         textShadow: '0px 0px 20px #fff',
         boxShadow: '0px 0px 8px #fff',
+        transition: {
+            repeat: Infinity,
+            duration: 0.4
+        }
     }
 } as const;
 

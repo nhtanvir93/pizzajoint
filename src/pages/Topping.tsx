@@ -53,7 +53,8 @@ const orderButtonVariants = {
         textShadow: '0px 0px 20px #fff',
         boxShadow: '0px 0px 8px #fff',
         transition: {
-            duration: 0.1
+            repeat: Infinity,
+            duration: 0.4
         }
     }
 } as const;
