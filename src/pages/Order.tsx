@@ -1,6 +1,16 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import session from "../utilities/session";
+import { motion } from 'framer-motion';
+
+const backButtonVariants = {
+    hover: {
+        scale: 1.1,
+        textShadow: '0px 0px 20px #fff',
+        boxShadow: '0px 0px 8px #fff',
+        transition: {duration: 0.1}
+    }
+} as const;
 
 export default function Order() {
     const navigate = useNavigate();
@@ -31,7 +41,14 @@ export default function Order() {
                 ))}
             </ul>
             <div className="action-container">
-                <button type="button" onClick={startAgain}>Back to Create Your Pizza</button>
+                <motion.button 
+                    type="button" 
+                    onClick={startAgain}
+                    variants={backButtonVariants}
+                    whileHover="hover"
+                >
+                    Back to Create Your Pizza
+                </motion.button>
             </div>
         </div>
     );

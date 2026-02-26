@@ -2,6 +2,28 @@ import { useNavigate } from "react-router-dom"
 import session from "../utilities/session";
 import { motion } from 'framer-motion';
 
+const containerVariants = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            delay: 0.5, 
+            duration: 3
+        }
+    }
+} as const;
+
+const createButtonVariants = {
+    hover: {
+        scale: 1.1,
+        textShadow: '0px 0px 20px #fff',
+        boxShadow: '0px 0px 8px #fff',
+        transition: {duration: 0.1}
+    }
+} as const;
+
 export default function Home() {
     const navigate = useNavigate();
 
@@ -13,12 +35,19 @@ export default function Home() {
     return (
         <motion.div 
             className="home"
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            transition={{delay: 0.5, duration: 3}}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
         >
             <h2>Welcome to Pizza Joint</h2>
-            <button type="button" onClick={start}>Create Your Pizza</button>
+            <motion.button 
+                type="button" 
+                onClick={start}
+                variants={createButtonVariants}
+                whileHover="hover"
+            >
+                Create Your Pizza
+            </motion.button>
         </motion.div>
     )
 }
