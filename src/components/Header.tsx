@@ -1,5 +1,19 @@
 import { motion } from 'framer-motion';
 
+const brandContainerVariants = {
+  hidden: {
+    y: -250
+  },
+  visible: {
+    y: -10,
+    transition: {
+      delay: 0.3, 
+      type: 'spring', 
+      stiffness: 120
+    }
+  }
+} as const;
+
 export default function Header() {
   return (
     <div className="header">
@@ -31,9 +45,9 @@ export default function Header() {
       </div>
       <motion.div
         className="brand-title"
-        initial={{y: -250}}
-        animate={{y: -10}}
-        transition={{delay: 0.3, type: 'spring', stiffness: 120}}
+        variants={brandContainerVariants}
+        initial="hidden"
+        animate="visible"
       >
         <h1>Pizza Joint</h1>
       </motion.div>
