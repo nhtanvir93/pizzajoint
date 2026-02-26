@@ -1,7 +1,7 @@
 import { useState } from "react";
 import session from "../utilities/session";
 import { useNavigate } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const toppings = ['Mushrooms', 'Peppers', 'Onion', 'Olives', 'Extra Cheese', 'Tomatoes'] as const;
 
@@ -44,6 +44,9 @@ const orderButtonContainerVariants = {
             type: 'spring', 
             stiffness: 80 
         }
+    },
+    exit: {
+        x: -1000
     }
 } as const;
 
@@ -96,24 +99,27 @@ export default function Topping() {
                     </motion.li>
                 ))}
             </ul>
-            {
-                selected.length > 0 &&
-                <motion.div
-                    variants={orderButtonContainerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    <motion.button 
-                        type="button" 
-                        onClick={next} 
-                        disabled={selected.length === 0}
-                        variants={orderButtonVariants}
-                        whileHover="hover"
+            <AnimatePresence>
+                {
+                    selected.length > 0 &&
+                    <motion.div
+                        variants={orderButtonContainerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
                     >
-                        Order
-                    </motion.button>
-                </motion.div>
-            }
+                        <motion.button 
+                            type="button" 
+                            onClick={next} 
+                            disabled={selected.length === 0}
+                            variants={orderButtonVariants}
+                            whileHover="hover"
+                        >
+                            Order
+                        </motion.button>
+                    </motion.div>
+                }
+            </AnimatePresence>
         </motion.div>
     );
 }
