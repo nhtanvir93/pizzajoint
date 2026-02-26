@@ -16,6 +16,9 @@ const backButtonVariants = {
 } as const;
 
 const containerVariants = {
+    hidden: {
+        x: 0
+    },
     visible: {
         transition: {
             type: 'spring',
@@ -56,6 +59,7 @@ export default function Order() {
     return (
         <motion.div
             variants={containerVariants}
+            initial="hidden"
             animate="visible"
         >
             <h2 className="centered-text">Thank you for your order :)</h2>
