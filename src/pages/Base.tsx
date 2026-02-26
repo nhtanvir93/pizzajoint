@@ -27,6 +27,20 @@ const listItemVariants = {
     }
 } as const;
 
+const nextButtonContainerVariants = {
+    hidden: {
+        x: '-100vw'
+    },
+    visible: {
+        x: 0,
+        transition: { 
+            duration: 0.1, 
+            type: 'spring', 
+            stiffness: 80 
+        }
+    }
+} as const;
+
 const nextButtonVariants = {
     hover: {
         scale: 1.1,
@@ -71,9 +85,9 @@ export default function Base() {
             {
                 selected &&
                 <motion.div
-                    initial={{x: '-100vw'}}
-                    animate={{x: 0}}
-                    transition={{ duration: 0.1, type: 'spring', stiffness: 80 }}
+                    variants={nextButtonContainerVariants}
+                    initial="hidden"
+                    animate="visible"
                 >
                     <motion.button 
                         type="button" 

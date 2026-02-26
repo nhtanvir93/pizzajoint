@@ -12,6 +12,19 @@ const backButtonVariants = {
     }
 } as const;
 
+const containerVariants = {
+    hidden: {
+        x: '100vw'
+    },
+    visible: {
+        x: 0,
+        transition: {
+            type: 'spring', 
+            delay: 0.5
+        }
+    }
+} as const;
+
 export default function Order() {
     const navigate = useNavigate();
     const base = session.getItem("base");
@@ -30,7 +43,11 @@ export default function Order() {
     };
 
     return (
-        <div>
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+        >
             <h2 className="centered-text">Thank you for your order :)</h2>
             <p className="centered-text">
                 You ordered a <span className="highlight">{base}</span> with:
@@ -50,6 +67,6 @@ export default function Order() {
                     Back to Create Your Pizza
                 </motion.button>
             </div>
-        </div>
+        </motion.div>
     );
 }
