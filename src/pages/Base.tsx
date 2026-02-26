@@ -16,7 +16,11 @@ export default function Base() {
     };
 
     return (
-        <div>
+        <motion.div
+            initial={{x: '100vw'}}
+            animate={{x: 0}}
+            transition={{type: 'spring', delay: 0.5}}
+        >
             <h2 className="action-title">Step 1 : Choose Your Base</h2>
             <ul role="listbox">
                 {bases.map((base) => (
@@ -32,17 +36,20 @@ export default function Base() {
                 ))}
             </ul>
             {
-                selected && 
-                <motion.button 
-                    type="button" 
-                    onClick={next} disabled={!selected}
+                selected &&
+                <motion.div
                     initial={{x: '-100vw'}}
                     animate={{x: 0}}
-                    transition={{ duration: 0.05 }}
+                    transition={{ duration: 0.1, type: 'spring', stiffness: 80 }}
                 >
-                    Next
-                </motion.button>
+                    <button 
+                        type="button" 
+                        onClick={next} disabled={!selected}
+                    >
+                        Next
+                    </button>
+                </motion.div>
             }
-        </div>
+        </motion.div>
     );
 }

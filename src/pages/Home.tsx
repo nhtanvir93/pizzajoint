@@ -15,6 +15,7 @@ export default function Home() {
             className="home"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
+            transition={{delay: 0.5, duration: 3}}
         >
             <h2>Welcome to Pizza Joint</h2>
             <button type="button" onClick={start}>Create Your Pizza</button>

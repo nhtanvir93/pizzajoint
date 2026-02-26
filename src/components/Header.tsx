@@ -33,6 +33,7 @@ export default function Header() {
         className="brand-title"
         initial={{y: -250}}
         animate={{y: -10}}
+        transition={{delay: 0.3, type: 'spring', stiffness: 120}}
       >
         <h1>Pizza Joint</h1>
       </motion.div>
