@@ -47,13 +47,14 @@ body {
 button {
   font-family: 'Josefin Sans', sans-serif;
   padding: 10px 30px;
-  border-radius: 20px;
+  border-radius: 40px;
   background-color: transparent;
   font-size: 1.6rem;
   outline: 0;
   border: 3px solid #000;
   cursor: pointer;
   transition: all .2s linear;
+  margin-top: 20px;
 }
 
 button:hover {
