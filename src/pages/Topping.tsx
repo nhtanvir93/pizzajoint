@@ -6,11 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const toppings = ['Mushrooms', 'Peppers', 'Onion', 'Olives', 'Extra Cheese', 'Tomatoes'] as const;
 
 const containerVariants = {
-    hidden: {
-        x: '100vw'
-    },
     visible: {
-        x: 0,
         transition: {
             type: 'spring', 
             mass: 0.4,
@@ -80,7 +76,6 @@ export default function Topping() {
     return (
         <motion.div 
             variants={containerVariants}
-            initial="hidden"
             animate="visible"
         >
             <h2 className="action-title">Step 2 : Choose Toppings</h2>

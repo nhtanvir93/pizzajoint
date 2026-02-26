@@ -6,11 +6,7 @@ import { motion } from 'framer-motion';
 const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'] as const;
 
 const containerVariants = {
-    hidden: {
-        x: '100vw'
-    },
     visible: {
-        x: 0,
         transition: {
             type: 'spring', 
             mass: 0.4,
@@ -72,7 +68,6 @@ export default function Base() {
     return (
         <motion.div
             variants={containerVariants}
-            initial="hidden"
             animate="visible"
         >
             <h2 className="action-title">Step 1 : Choose Your Base</h2>
