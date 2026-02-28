@@ -1,4 +1,4 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, useCycle, type Variants } from "framer-motion";
 
 const loaderVariants: Variants = {
     animationOne: {
@@ -17,16 +17,31 @@ const loaderVariants: Variants = {
                 ease: "easeOut"
             }
         }
+    },
+    animationTwo: {
+        x: [-30, 30],
+        transition: {
+            x: {
+                repeat: Infinity,
+                repeatType: 'mirror',
+                duration: .5
+            }
+        }
     }
 };
 
 export default function Loader() {
+    const [animation, cycleAnimation] = useCycle("animationOne", "animationTwo");
+
     return (
-        <motion.div 
-            className="loader"
-            variants={loaderVariants}
-            animate="animationOne"
-        >
-        </motion.div>
+        <div className="loader-container">
+            <motion.div 
+                className="loader"
+                variants={loaderVariants}
+                animate={animation}
+            >
+            </motion.div>
+            <p onClick={() => cycleAnimation()}>Cycle Loader</p>
+        </div>
     )
 }
