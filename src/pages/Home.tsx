@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import session from "../utilities/session";
 import { motion } from 'framer-motion';
+import Loader from "../components/Loader";
 
 const containerVariants = {
     hidden: {
@@ -51,6 +52,7 @@ export default function Home() {
             >
                 Create Your Pizza
             </motion.button>
+            <Loader/>
         </motion.div>
     )
 }

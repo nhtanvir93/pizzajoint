@@ -133,3 +133,10 @@ button:disabled {
   border: 3px solid #000;
 }
 
+.loader {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-top: 50px;
+}
