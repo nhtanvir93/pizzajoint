@@ -18,7 +18,7 @@ const modalVariants = {
     exit: {
         y: '-100vh'
     }
-};
+} as const;
 
 const actionButtonVariants = {
     hover: {

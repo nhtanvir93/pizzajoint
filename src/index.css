@@ -2,6 +2,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   background-color: #880abe;
   position: relative;
+  color: #fff;
 }
 
 .container {
@@ -28,7 +29,7 @@ body {
 }
 
 .brand-title {
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid #fff;
   flex: 1;
 }
 
@@ -52,21 +53,17 @@ button {
   background-color: transparent;
   font-size: 1.6rem;
   outline: 0;
-  border: 3px solid #000;
+  border: 3px solid #fff;
   cursor: pointer;
   transition: all .2s linear;
   margin-top: 20px;
   font-weight: 900;
-}
-
-button:hover {
-  background-color: #000;
-  color: #880abe;
+  color: #fff;
 }
 
 .action-title {
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #fff;
 }
 
 ul {
@@ -124,9 +121,15 @@ button:disabled {
   padding: 40px 20px;
   border-radius: 10px;
   text-align: center;
+  color: #000;
 }
 
 .modal p {
   font-weight: 900;
+}
+
+.modal button {
+  color: #000;
+  border: 3px solid #000;
 }
 
