@@ -1,19 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import session from "../utilities/session";
 import { motion } from 'framer-motion';
-
-const backButtonVariants = {
-    hover: {
-        scale: 1.1,
-        textShadow: '0px 0px 20px #fff',
-        boxShadow: '0px 0px 8px #fff',
-        transition: {
-            repeat: Infinity,
-            duration: 0.4
-        }
-    }
-} as const;
+import Modal from "../components/Modal";
 
 const containerVariants = {
     hidden: {
@@ -41,20 +30,22 @@ const childVariants = {
 
 export default function Order() {
     const navigate = useNavigate();
+
+    const [open, setOpen] = useState(false);
+
     const base = session.getItem("base");
     const toppings = session.getItem("toppings") as string[] | null;
 
     useEffect(() => {
         if (!base) navigate("/base");
         else if (!toppings || toppings.length === 0) navigate("/toppings");
-    }, [base, toppings, navigate]);
+
+        setTimeout(() => {
+            setOpen(true);
+        }, 5000);
+    }, []);
 
     if (!base || !toppings || toppings.length === 0) return null;
-
-    const startAgain = () => {
-        session.clear();
-        navigate("/");
-    };
 
     return (
         <motion.div
@@ -62,6 +53,7 @@ export default function Order() {
             initial="hidden"
             animate="visible"
         >
+            <Modal open={open} onClose={() => setOpen(false)} />
             <h2 className="centered-text">Thank you for your order :)</h2>
             <motion.p 
                 className="centered-text"
@@ -76,16 +68,6 @@ export default function Order() {
                     <li key={topping} className="highlight centered-text">{topping}</li>
                 ))}
             </motion.ul>
-            <div className="action-container">
-                <motion.button 
-                    type="button" 
-                    onClick={startAgain}
-                    variants={backButtonVariants}
-                    whileHover="hover"
-                >
-                    Back to Create Your Pizza
-                </motion.button>
-            </div>
         </motion.div>
     );
 }
